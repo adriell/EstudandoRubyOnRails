@@ -8,10 +8,16 @@ class Franquia
 		end
 	end
 	def mostra
-		for restaurante in @restaurantes
-			puts restaurante.nome
+		@restaurantes.each do |r|
+			puts r.nome
 		end
 	end
+	def relatorio
+		@restaurantes.each do |r|
+			yield r
+		end
+	end
+
 end
 
 class Restaurante
@@ -28,12 +34,17 @@ class Restaurante
 end
 
 
-restaurante_um = Restaurante.new("Atelie da Shyrlei")
-restaurante_dois = Restaurante.new("Sabor de Mel")
+restaurante_um = Restaurante.new
+restaurante_um.nome = "Atelie da Shyrlei"
+restaurante_dois = Restaurante.new
+restaurante_dois.nome = "Sabor de Mel"
 
 franquia = Franquia.new
 franquia.adiciona restaurante_um, restaurante_dois
 
+franquia.relatorio do |r|
+	puts "Restaurante cadastrado: #{r.nome}"
+end
 # franquia.mostra
 
 # restaurante_um.nota = 10
