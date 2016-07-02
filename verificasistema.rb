@@ -1,7 +1,7 @@
 require 'net/http'
 require 'colorize'
 
-for k,v in  {"Uniplam"=>"http://homologacao.infoway-pi.com.br/uniplam/getRoles.do", "IPMT" => "http://homologacao.infoway-pi.com.br/ipmt/getRoles.do"}
+for k,v in  {"Uniplam"=>"http://homologacao.infoway-pi.com.br/uniplam/getRoles.do", "IPMT" => "http://homologacao.infoway-pi.com.br/ipmt66/getRoles.do"}
   uri = URI(v)
   res = Net::HTTP.get_response(uri)
   case res.code
